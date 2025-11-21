@@ -1,0 +1,3 @@
+[submodule "libXaw3dXft-src"]
+	path = libXaw3dXft-src
+	url = https://github.com/DaveFlater/libXaw3dXft.git

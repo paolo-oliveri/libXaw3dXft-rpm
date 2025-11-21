@@ -1,0 +1,18 @@
+diff -uNrp a/src/XawIm.c b/src/XawIm.c
+--- a/src/XawIm.c	2014-05-13 17:36:03.000000000 +0000
++++ b/src/XawIm.c	2024-05-07 14:09:33.862990858 +0000
+@@ -1519,10 +1519,13 @@ _XawImWcLookupString(
+     char			tmp_buf[64], *tmp_p;
+     wchar_t*			buf_p;
+ 
++    char * buffer_return_char;
++    wcstombs(buffer_return_char, buffer_return, 64);
++
+     if ((vw = SearchVendorShell(inwidg)) && (ve = GetExtPart(vw)) &&
+ 	ve->im.xim && (p = GetIcTableShared(inwidg, ve)) && p->xic) {
+           if (_Xaw3dXft->encoding == -1)
+-	      ret = Xutf8LookupString (p->xic, event, buffer_return, bytes_buffer, keysym_return, status_return);
++	      ret = Xutf8LookupString (p->xic, event, buffer_return_char, bytes_buffer, keysym_return, status_return);
+           else
+ 	      ret = XwcLookupString(p->xic, event, buffer_return, bytes_buffer,
+ 				 keysym_return, status_return);
