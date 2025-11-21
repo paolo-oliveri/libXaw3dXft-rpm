@@ -71,6 +71,8 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/doc
 
 %changelog
+* Thu Nov 16 2023 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
+- Rebuilt for RHEL 8
 * Fri Oct 6 2023 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
 - Rebuilt for RHEL 9
 * Sun Sep 19 2021 Wei-Lun Chao <bluebat@member.fsf.org> - 1.6.2h
