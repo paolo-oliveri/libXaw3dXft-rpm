@@ -66,11 +66,12 @@ rm -rf %{buildroot}
 %{_includedir}/X11/Xaw3dxft
 %{_libdir}/libXaw3dxft.so
 %{_libdir}/pkgconfig/libxaw3dxft.pc
-%exclude %{_libdir}/libXaw3dxft.la
 %exclude %{_libdir}/libXaw3dxft.a
 %exclude %{_datadir}/doc
 
 %changelog
+* Mon Mar 17 2025 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
+- Rebuilt for RHEL 10
 * Thu Nov 16 2023 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
 - Rebuilt for RHEL 8
 * Fri Oct 6 2023 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
