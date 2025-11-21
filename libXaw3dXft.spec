@@ -70,6 +70,8 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/doc
 
 %changelog
+* Mon May 26 2025 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
+- Rebuilt for Fedora 42
 * Mon Mar 17 2025 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
 - Rebuilt for RHEL 10
 * Thu Nov 16 2023 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
