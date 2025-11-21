@@ -1,11 +1,11 @@
 Summary:        An extended version of Xaw3d with support for UTF8
 Name:           libXaw3dXft
-Version:        1.6.2h
+Version:        1.6.4
 Release:        1%{?dist}
 License:        GPLv3+
 Group:          System Environment/Libraries
-URL:            https://sourceforge.net/projects/sf-xpaint
-Source0:        https://sourceforge.net/projects/sf-xpaint/files/libxaw3dxft/%{name}-%{version}.tar.bz2
+URL:            https://github.com/DaveFlater/libXaw3dXft
+Source0:        https://github.com/DaveFlater/libXaw3dXft/archive/refs/tags/v1.6.4.tar.gz
 
 BuildRequires:  gcc gcc-c++ automake autoconf libtool make
 BuildRequires:  bison
@@ -17,7 +17,7 @@ BuildRequires:  libXft-devel
 Requires: libX11 libXmu libXft
 
 # wcstombs for utf8 patching in XawIm.c
-Patch0:         wcstombs.patch
+# Patch0:         wcstombs.patch
 
 %description
 Xaw3dxft is an extended version of Xaw3d, developed as part of xpaint
@@ -39,10 +39,11 @@ for writing applications with %{name}.
 
 %prep
 %setup -q
+autoreconf -fi
 sed -i -e 's|/usr/lib|%{_libdir}|g' configure
 
 # wcstombs for utf8 patching in XawIm.c
-%patch0  -p1 -b .orig
+# %patch0  -p1 -b .orig
 
 %build
 %configure --enable-internationalization --enable-arrow-scrollbars
@@ -58,7 +59,7 @@ libtool --finish /usr/lib64
 rm -rf %{buildroot}
 
 %files
-%doc README README.xaw3d COPYING 
+%doc README COPYING 
 %{_libdir}/libXaw3dxft*.so.*
 
 %files devel
@@ -66,10 +67,13 @@ rm -rf %{buildroot}
 %{_includedir}/X11/Xaw3dxft
 %{_libdir}/libXaw3dxft.so
 %{_libdir}/pkgconfig/libxaw3dxft.pc
+%exclude %{_libdir}/libXaw3dxft.la
 %exclude %{_libdir}/libXaw3dxft.a
 %exclude %{_datadir}/doc
 
 %changelog
+* Fri Nov 21 2025 Paolo Oliveri <paul@oliveri.info> - 1.6.4
+- Updated codebase
 * Mon May 26 2025 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
 - Rebuilt for Fedora 42
 * Mon Mar 17 2025 Paolo Oliveri <paul@oliveri.info> - 1.6.2h
