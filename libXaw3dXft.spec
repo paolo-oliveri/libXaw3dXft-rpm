@@ -67,7 +67,6 @@ rm -rf %{buildroot}
 %{_includedir}/X11/Xaw3dxft
 %{_libdir}/libXaw3dxft.so
 %{_libdir}/pkgconfig/libxaw3dxft.pc
-%exclude %{_libdir}/libXaw3dxft.la
 %exclude %{_libdir}/libXaw3dxft.a
 %exclude %{_datadir}/doc
 
